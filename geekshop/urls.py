@@ -24,6 +24,7 @@ from mainapp.views import index, products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', index, name='index'),
     path('products/', include('mainapp.urls', namespace='mainapp')),
     path('users/', include('authapp.urls', namespace='authapp')),

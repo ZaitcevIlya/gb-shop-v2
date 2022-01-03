@@ -80,5 +80,15 @@ class ProfileFormView(UpdateView,BaseClassContextMixin,UserDispatchMixin):
     #     context['baskets'] = Basket.objects.filter(user=self.request.user)
     #     return context
 
+
 class Logout(LogoutView):
     template_name = "mainapp/index.html"
+
+
+class GoogleAuth(LoginView, BaseClassContextMixin):
+    template_name = "authapp/google_auth.html"
+
+
+#
+# def all1(request):
+#     return render(request, "authapp/google_auth.html")
