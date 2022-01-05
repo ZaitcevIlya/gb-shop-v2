@@ -1,7 +1,7 @@
 
 from django.urls import path
 # from authapp.views import
-from authapp.views import ProfileFormView,LoginListView,RegisterListView,Logout
+from authapp.views import ProfileFormView, LoginListView, RegisterListView, Logout, GoogleAuth
 
 app_name = 'authapp'
 urlpatterns = [
@@ -10,6 +10,8 @@ urlpatterns = [
     path('register/', RegisterListView.as_view(),name='register'),
     path('profile/', ProfileFormView.as_view(), name='profile'),
     path('logout/', Logout.as_view(), name='logout'),
+    # Google Auth
+    path("all/", GoogleAuth.as_view(), name="all"),
 
     path('verify/<str:email>/<str:activate_key>/', RegisterListView.verify, name='verify'),
 ]

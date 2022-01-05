@@ -10867,3 +10867,24 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
     background-color: #e9ecef;
 }
+
+.g-divider {
+    text-align: center;
+}
+
+.g-btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.g-btn:hover {
+    text-decoration: none;
+}
+
+.g-btn:hover .g-btn-text {
+    text-decoration: underline;
+}
+
+.g-btn-text {
+    margin-left: 5px;
+}
