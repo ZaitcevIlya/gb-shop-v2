@@ -44,9 +44,19 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'authapp:profile' %}">{{ user.username }}
-                            <i class="fas fa-user-circle"></i>
-                        </a>
+
+                        <div class="dropdown">
+                            <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                                {{ user.username|default:"Пользователь" }}
+                                <i class="fas fa-user-circle"></i>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'authapp:profile' %}" class="nav-link text-dark">Профиль</a></li>
+                                <li><a href="{% url 'orders:list' %}" class="nav-link text-dark">Заказы</a></li>
+                            </ul>
+                        </div>
+
                     </li>
                     {% if user.is_superuser %}
                     <li class="nav-item">
