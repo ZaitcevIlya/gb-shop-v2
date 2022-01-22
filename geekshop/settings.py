@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'authapp',
     'baskets',
     'admins',
+    'ordersapp',
+
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
