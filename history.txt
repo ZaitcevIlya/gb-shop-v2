@@ -1,0 +1,89 @@
+    1  exit
+    2  ssh-keygen
+    3  ll
+    4  ll .ssh/
+    5  cat .ssh/id_rsa.pub 
+    6  apt update
+    7  apt install nginx
+    8  apt install postgresql postgresql-contrib
+    9  apt install python3-venv
+   10  nano /etc/postgresql/12/main/pg_hba.conf 
+   11  systemctl restart postgresql
+   12  systemctl status postgresql
+   13  useradd g www-data -m django
+   14  useradd -g www-data -m django
+   15  cd /home/django/
+   16  ls -al
+   17  git clone git@github.com:ZaitcevIlya/gb-shop-v2.git
+   18  ls
+   19  python3 -m venv env
+   20  source env/bin/activate
+   21  cd gb-shop-v2/
+   22  git fetch origin 
+   23  git branch ls
+   24  git branch list
+   25  git branch
+   26  git pull origin main 
+   27  ls
+   28  pip install -r requirements.txt 
+   29  ls
+   30  mv requirements.txt requirements_old.txt 
+   31  touch requirements.txt
+   32  vi requirements
+   33  ll
+   34  vi requirements.txt 
+   35  cd ../../
+   36  ll
+   37  cd django/
+   38  ll
+   39  rm -rf env/
+   40  ll
+   41  deactivate
+   42  python3 -m venv env
+   43  cd gb-shop-v2/
+   44  source env/bin/activate
+   45  source ../env/bin/activate
+   46  pip install -r requirements.txt 
+   47  gst
+   48  git satuts
+   49  git status
+   50  rm -rf requirements_old.txt 
+   51  git add requirements.txt 
+   52  git commit -m 'update requirements'
+   53  git status
+   54  git push origin main 
+   55  pip install wheel
+   56  pip install gunicorn
+   57  psql -U postgres
+   58  python3 manage.py migrate
+   59  ls
+   60  pip install allauth
+   61  pip install django-allauth
+   62  python3 manage.py migrate
+   63  python3 manage.py fill_db
+   64  python3 manage.py runserver 0.0.0.0:8000
+   65  vi /etc/systemd/system/gunicorn.service
+   66  cat /etc/systemd/system/gunicorn.service 
+   67  systemctl enable gunicorn.service 
+   68  systemctl start gunicorn.service 
+   69  systemctl status gunicorn.service 
+   70  chown -R django /home/django/
+   71  systemctl status gunicorn.service 
+   72  systemctl restart gunicorn.service 
+   73  systemctl status gunicorn.service 
+   74  ll geekshop/
+   75  vi /etc/systemd/system/gunicorn.service
+   76  ls geekshop/
+   77  sudo nano /etc/nginx/sites-available/geekshop
+   78  systemctl restart gunicorn.service 
+   79  systemctl status gunicorn.service 
+   80  ln -s /etc/nginx/sites-available/geekshop /etc/nginx/sites-enabled/
+   81  rm /etc/nginx/sites-enabled/default 
+   82  systemctl restart gunicorn.service 
+   83  nginx -t
+   84  systemctl restart nginx
+   85  systemctl status nginx
+   86  tail -f /var/log/nginx/error.log 
+   87  python3 manage.py createsuperuser
+   88  history
+   89  history > /tmp/history.txt
