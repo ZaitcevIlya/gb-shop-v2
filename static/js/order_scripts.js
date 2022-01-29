@@ -76,5 +76,30 @@ document.addEventListener("DOMContentLoaded", function () {
         orderSummaryUpdate(price_arr[orderitem_num], delta_quantity)
     }
 
+    $(document).on('change', '.form-control', function (event){
+        let price_field = event.target;
+        orderitem_num = parseInt(price_field.name.replace('orderitems-', '').replace('-product', ''))
+        let orderitem_products_pk = price_field.options[price_field.selectedIndex].value;
+
+        if (orderitem_products_pk) {
+            $.ajax({
+                url: `/orders/products/${orderitem_products_pk}/price/`,
+                success: data => {
+                    if (data.price) {
+                        price_arr[orderitem_num] = parseFloat(data.price)
+                        if (isNaN(quantity_arr[orderitem_num])) {
+                            quantity_arr[orderitem_num] = 0;
+                        }
+                        let price_formatted = data.price.toString().replace('.', ',')
+                        let price_html = `<input class="form-control orderitems-${orderitem_num}-price" value=${price_formatted} />`
+
+                        let current_tr = $('.order_form table').find('tr:eq('+(orderitem_num+1)+')');
+                        current_tr.find('td:eq(2)').html(price_html)
+                    }
+                }
+            })
+        }
+    })
+
 
 });
