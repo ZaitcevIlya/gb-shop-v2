@@ -1,0 +1,4 @@
+http://194.58.103.47/
+http://194.58.103.47/products/
+http://194.58.103.47/products/detail/1/
+http://194.58.103.47/users/profile/
