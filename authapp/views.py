@@ -23,7 +23,7 @@ class LoginListView(LoginView,BaseClassContextMixin):
     # def get(self, request, *args, **kwargs):
     #     if request.user.is_authenticated:
     #         return HttpResponseRedirect(reverse('index'))
-    #     return HttpResponseRedirect(reverse('authapp:login'))
+    #     return HttpResponseRedirect(reverse('users:login'))
 
 
 class RegisterListView(FormView,BaseClassContextMixin):
