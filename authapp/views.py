@@ -12,11 +12,19 @@ from authapp.forms import UserLoginForm, UserRegisterForm, UserProfilerForm, Use
 from authapp.models import User
 from baskets.models import Basket
 from mainapp.mixin import BaseClassContextMixin, UserDispatchMixin
+from templates import account
+
 
 class LoginListView(LoginView,BaseClassContextMixin):
     template_name = 'authapp/login.html'
     form_class = UserLoginForm
     title = 'GeekShop - Авторизация'
+
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         return HttpResponseRedirect(reverse('index'))
+    #     return HttpResponseRedirect(reverse('users:login'))
+
 
 class RegisterListView(FormView,BaseClassContextMixin):
     model = User
@@ -93,5 +101,5 @@ class Logout(LogoutView):
 
 
 class GoogleAuth(LoginView, BaseClassContextMixin):
-    template_name = "authapp/google_auth.html"
+    template_name = "account/base.html"
 

@@ -79,11 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).on('change', '.form-control', function (event){
         let price_field = event.target;
         orderitem_num = parseInt(price_field.name.replace('orderitems-', '').replace('-product', ''))
-        let orderitem_products_pk = price_field.options[price_field.selectedIndex].value;
+        let orderitem_product_pk = document.querySelector(`#id_orderitems-${orderitem_num}-product`).selectedOptions[0].value
 
-        if (orderitem_products_pk) {
+        if (orderitem_product_pk) {
             $.ajax({
-                url: `/orders/products/${orderitem_products_pk}/price/`,
+                url: `/orders/products/${orderitem_product_pk}/price/`,
                 success: data => {
                     if (data.price) {
                         price_arr[orderitem_num] = parseFloat(data.price)
