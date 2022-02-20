@@ -1,0 +1,18 @@
+{% extends 'mainapp/base.html' %}
+{% load socialaccount %}
+{% load static %}
+    <title>Google Registration</title>
+    {% block css %}
+        <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+    {% endblock %}
+
+{% block content %}
+    <div class="google-auth-block">
+        <h1>My Google Login Project</h1>
+        {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }} !</p>
+        {% else %}
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        {% endif %}
+    </div>
+{% endblock content %}
